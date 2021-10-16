@@ -7,7 +7,6 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:ui' as ui;
 import 'additionalWidgets/coins_card.dart';
-import 'additionalWidgets/favourite_coins_card.dart';
 
 class WazirxHomePage extends StatefulWidget {
   WazirxHomePage({Key? key}) : super(key: key);
@@ -17,7 +16,6 @@ class WazirxHomePage extends StatefulWidget {
 }
 
 class _WazirxHomePageState extends State<WazirxHomePage> {
-  var coinList = ["WRX","BTC","ETH",'DOGE','BZRX','CHR','HPR'];
 
   @override
   Widget build(BuildContext context) {
@@ -149,12 +147,12 @@ class _WazirxHomePageState extends State<WazirxHomePage> {
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
-                      return CoinsCard(index: index, coinTitle: coinList[index],);
+                      return CoinsCard(index: index);
                     },
                     separatorBuilder: (context, int) => SizedBox(
                           width: 25,
                         ),
-                    itemCount: 1),
+                    itemCount: 10),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 25.0, left: 25),
@@ -182,7 +180,7 @@ class _WazirxHomePageState extends State<WazirxHomePage> {
                           childCount: 10,
                             builder: (builder, index) {
                           return RotatedBox(
-                              quarterTurns: 3, child: FavouriteCard(index: index, coinTitle: coinList[index],));
+                              quarterTurns: 3, child: CoinsCard(index: index));
                         }),
                       ),
                     )),

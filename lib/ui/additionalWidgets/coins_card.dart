@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CoinsCard extends StatefulWidget {
-  final String coinTitle;
   final int index;
-  const CoinsCard({Key? key, required this.index,required this.coinTitle}) : super(key: key);
+  const CoinsCard({Key? key, required this.index}) : super(key: key);
 
   @override
   _CoinsCardState createState() => _CoinsCardState();
@@ -17,6 +16,7 @@ class CoinsCard extends StatefulWidget {
 class _CoinsCardState extends State<CoinsCard> {
   @override
   Widget build(BuildContext context) {
+    String coinTitle = "WRX";
     final cardGradient = LinearGradient(colors: [
       Color(0xffFFFCFC).withOpacity(0.24),
       Color(0xffFFFFFF).withOpacity(0.06)
