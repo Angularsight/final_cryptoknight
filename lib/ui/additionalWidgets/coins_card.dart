@@ -23,8 +23,7 @@ class _CoinsCardState extends State<CoinsCard> {
     ], begin: Alignment.topLeft, end: Alignment.bottomRight);
     return Padding(
       padding: const EdgeInsets.only(left: 12.0),
-<<<<<<< HEAD
-=======
+
       child: InkWell(
         onTap: () {
           Navigator.push(
