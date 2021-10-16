@@ -11,25 +11,13 @@ import 'additionalWidgets/favourite_coins_card.dart';
 
 class WazirxHomePage extends StatefulWidget {
   WazirxHomePage({Key? key}) : super(key: key);
-
+  int _selectedBottomNavItem = 0;
   @override
   _WazirxHomePageState createState() => _WazirxHomePageState();
 }
 
 class _WazirxHomePageState extends State<WazirxHomePage> {
   var coinList = ["WRX","BTC","ETH",'DOGE','BZRX','CHR','HPR'];
-  int _selectedBottomNavItem = 0;
-  late ScrollController _scrollController;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _scrollController = ScrollController()..addListener(() {
-      setState(() {
-      });
-    });
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -166,10 +154,10 @@ class _WazirxHomePageState extends State<WazirxHomePage> {
                     separatorBuilder: (context, int) => SizedBox(
                           width: 25,
                         ),
-                    itemCount: coinList.length),
+                    itemCount: 1),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 25.0, left: 25,bottom: 10),
+                padding: const EdgeInsets.only(top: 25.0, left: 25),
                 child: Text(
                   "Favourites",
                   textAlign: TextAlign.start,
@@ -182,10 +170,10 @@ class _WazirxHomePageState extends State<WazirxHomePage> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 30.0),
                 child: Container(
-                    width: MediaQuery.of(context).size.width*0.9,
+                    width: double.infinity,
                     height: 220,
                     child: RotatedBox(
-                      quarterTurns: 3,
+                      quarterTurns: 1,
                       child: ListWheelScrollView.useDelegate(
                         squeeze: 1,
                         physics: FixedExtentScrollPhysics(),
@@ -193,13 +181,8 @@ class _WazirxHomePageState extends State<WazirxHomePage> {
                         childDelegate: ListWheelChildBuilderDelegate(
                           childCount: 10,
                             builder: (builder, index) {
-                            if(index<=coinList.length-1) {
-                              return RotatedBox(
-                                quarterTurns: 1,
-                                child: FavouriteCard(
-                                  index: index, coinTitle: coinList[index],),
-                              );
-                            }
+                          return RotatedBox(
+                              quarterTurns: 3, child: FavouriteCard(index: index, coinTitle: coinList[index],));
                         }),
                       ),
                     )),
